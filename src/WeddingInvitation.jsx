@@ -75,6 +75,13 @@ export default function WeddingInvitation() {
         />
       </div>
       <div className="invitation-actions">
+        <a
+          href={`${import.meta.env.BASE_URL}wedding-invitation.pdf`}
+          download="Alshifa-and-Mo-Zaid-Wedding-Invitation.pdf"
+          className="download-pdf-button"
+        >
+          <span>📥</span> Download PDF Invitation
+        </a>
         <button onClick={() => window.print()}>Print / Save as PDF</button>
       </div>
     </section>}
