@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { CalendarDays, Clock3, MapPin, Heart, RotateCcw, Volume2 } from 'lucide-react';
+import referenceImg from './assets/invitation-reference.png';
 
 const wedding = {
   bride: 'Alshifa',
@@ -96,7 +97,7 @@ export default function WeddingInvitation() {
         <div className="mosque-silhouette" aria-hidden="true">☾　♜　♙　♜　☾</div>
       </div>
       <div className="invitation-actions"><button onClick={() => window.print()}>Print / Save as PDF</button><button className="secondary-action" onClick={() => setShowReference(v => !v)}>{showReference ? 'Hide original artwork' : 'View original artwork'}</button></div>
-      {showReference && <div className="reference-wrap"><img src="/src/assets/invitation-reference.png" alt="Original square wedding invitation artwork" /></div>}
+      {showReference && <div className="reference-wrap"><img src={referenceImg} alt="Original square wedding invitation artwork" /></div>}
       <p className="edit-hint">To personalize the invitation, edit the <code>wedding</code> object in <code>src/WeddingInvitation.jsx</code>.</p>
     </section>}
   </main>;
