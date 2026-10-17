@@ -1,32 +1,15 @@
 import { useState } from 'react';
-import { CalendarDays, Clock3, MapPin, Heart, RotateCcw, Volume2 } from 'lucide-react';
+import { RotateCcw } from 'lucide-react';
 import referenceImg from './assets/invitation-reference.png';
 
 const wedding = {
   bride: 'Alshifa',
   groom: 'Mo. Zaid',
-  events: [
-    { name: 'Haldi', date: '27 November 2026', time: '10:00 AM', venue: 'Opp. Urdu School, Khambhat', tone: 'haldi', symbol: '✿', note: 'A day of colors, love & blessings' },
-    { name: 'Nikah', date: '28 November 2026', time: '3:00 PM', venue: 'Mansuri Hall, Khambhat', tone: 'nikah', symbol: '☾', note: 'A sacred bond for a lifetime' },
-    { name: 'Reception', date: '29 November 2026', time: '8:00 PM', venue: 'M.D. Farm, Danilimda, Khambat', tone: 'reception', symbol: '✧', note: 'A celebration of love & togetherness' },
-  ],
 };
-
-function EventCard({ event }) {
-  return <article className={`event-card ${event.tone}`}>
-    <div className="event-symbol" aria-hidden="true">{event.symbol}</div>
-    <h3>{event.name}</h3>
-    <p className="event-note">{event.note}</p>
-    <div className="event-detail"><CalendarDays size={17} /><span>{event.date}</span></div>
-    <div className="event-detail"><Clock3 size={17} /><span>{event.time}</span></div>
-    <div className="event-detail venue"><MapPin size={17} /><span>{event.venue}</span></div>
-  </article>;
-}
 
 export default function WeddingInvitation() {
   const [opened, setOpened] = useState(false);
   const [isOpening, setIsOpening] = useState(false);
-  const [showReference, setShowReference] = useState(false);
 
   const handleOpen = () => {
     if (isOpening || opened) return;
@@ -84,21 +67,16 @@ export default function WeddingInvitation() {
 
     {opened && <section className="invitation-wrap" aria-label="Wedding invitation">
       <button className="back-button" onClick={handleReset}><RotateCcw size={15} /> Replay door animation</button>
-      <div className="invitation-card">
-        <div className="card-ornament top-ornament">✧ ❋ ✧</div>
-        <p className="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-        <p className="translation">IN THE NAME OF ALLAH, THE MOST GRACIOUS, THE MOST MERCIFUL</p>
-        <div className="gold-line"><span>✦</span></div>
-        <p className="intro">With the blessings of Allah and the love of our families,<br className="desktop-break" /> we invite you to celebrate the wedding of</p>
-        <h2>{wedding.bride}<span>and</span>{wedding.groom}</h2>
-        <p className="welcome-message">Your presence will make our celebrations more special.<br className="desktop-break" /> We look forward to sharing these beautiful moments with you.</p>
-        <div className="events-grid">{wedding.events.map(event => <EventCard key={event.name} event={event} />)}</div>
-        <div className="closing"><span>❋</span><p>WE WOULD BE HONORED BY YOUR PRESENCE<br />AT ALL THREE EVENTS</p><span>❋</span></div>
-        <div className="mosque-silhouette" aria-hidden="true">☾　♜　♙　♜　☾</div>
+      <div className="invitation-image-card">
+        <img
+          src={referenceImg}
+          alt={`Wedding invitation of ${wedding.bride} and ${wedding.groom}`}
+          className="invitation-image"
+        />
       </div>
-      <div className="invitation-actions"><button onClick={() => window.print()}>Print / Save as PDF</button><button className="secondary-action" onClick={() => setShowReference(v => !v)}>{showReference ? 'Hide original artwork' : 'View original artwork'}</button></div>
-      {showReference && <div className="reference-wrap"><img src={referenceImg} alt="Original square wedding invitation artwork" /></div>}
-      <p className="edit-hint">To personalize the invitation, edit the <code>wedding</code> object in <code>src/WeddingInvitation.jsx</code>.</p>
+      <div className="invitation-actions">
+        <button onClick={() => window.print()}>Print / Save as PDF</button>
+      </div>
     </section>}
   </main>;
 }
