@@ -38,8 +38,8 @@ export default function WeddingInvitation() {
         onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleOpen(); }}
       >
         <div className="door-frame">
-          <div className="door door-left"><div className="door-inner"><div className="door-arch"><span>✧</span><b>بسم الله</b><span>❋</span></div><div className="door-pattern">◇<br />✦<br />◇</div><div className="door-knob" /></div></div>
-          <div className="door door-right"><div className="door-inner"><div className="door-arch"><span>✧</span><b>الرحمن الرحيم</b><span>❋</span></div><div className="door-pattern">◇<br />✦<br />◇</div><div className="door-knob" /></div></div>
+          <div className="door door-right"><div className="door-inner"><div className="door-arch"><span>✧</span><b>بسم الله</b><span>❋</span></div><div className="door-pattern">◇<br />✦<br />◇</div><div className="door-knob" /></div></div>
+          <div className="door door-left"><div className="door-inner"><div className="door-arch"><span>✧</span><b>الرحمن الرحيم</b><span>❋</span></div><div className="door-pattern">◇<br />✦<br />◇</div><div className="door-knob" /></div></div>
           <div className="door-glow" />
           <div className="door-portal">
             <span className="portal-crescent">☾</span>
